@@ -60,4 +60,33 @@ export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init --path)"
 ```
 
+## Issue of running python 3.7 on MacBook M1
+Complains module ctypes are not found -
+```
+python -c 'import _ctypes'
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+ModuleNotFoundError: No module named '_ctypes'
+```
+I ended up getting Python 3.7.10 working on my M1 via: https://github.com/pyenv/pyenv/issues/1768
+```
+# Install x86 brew
+arch -x86_64 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
+alias ibrew=/usr/local/bin/brew
+
+# Install Python 3.7
+ibrew install python@3.7
+
+# Add `python` executable (symlink to `python3`)
+ln -s python3 "$(ibrew --prefix python@3.7)"/bin/python
+
+# Symlink x86 Python 3.7 into pyenv
+ln -s "$(ibrew --prefix python@3.7)" .pyenv/versions/3.7.10
+
+# Check
+pyenv local 3.7.10
+python -V
+# Python 3.7.10
+python -c 'import _ctypes'. # works!
+```
 
