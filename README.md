@@ -72,19 +72,12 @@ I ended up getting Python 3.7.10 working on my M1 via: https://github.com/pyenv/
 ```
 # Install x86 brew
 arch -x86_64 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
-alias ibrew=/usr/local/bin/brew
 
 # Install Python 3.7
-ibrew install python@3.7
+arch -x86_64 /usr/local/bin/brew install python@3.7
 
-# Add `python` executable (symlink to `python3`)
-ln -s python3 "$(ibrew --prefix python@3.7)"/bin/python
+export PATH=/usr/local/opt/python@3.7/bin:$PATH
 
-# Symlink x86 Python 3.7 into pyenv
-ln -s "$(ibrew --prefix python@3.7)" .pyenv/versions/3.7.10
-
-# Check
-pyenv local 3.7.10
 python -V
 # Python 3.7.10
 python -c 'import _ctypes'. # works!
