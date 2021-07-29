@@ -83,3 +83,19 @@ python -V
 python -c 'import _ctypes'. # works!
 ```
 
+## Conda Environment on M1 Macbook
+The link that saved us all: https://towardsdatascience.com/installing-tensorflow-on-the-m1-mac-410bb36b776
+### Conda Env Tools:
+for ease of conventions: rename new hijacked .bash_profile (bash config file) to .bash_profile_conda
+```
+mv .bash_profile .bash_profile_conda
+```
+To switch to the conda virtual environment now, we just switch to the conda hijacked profile
+```
+source .bash_profile_conda
+```
+We know we are in the virtual environment within bash when '(base)' is before our bash name
+```
+(base) [kyle@KyleMac:~]$
+```
+From there on, we have a new python environment that can run great libraries like tensorflow! (follow above link for more)
