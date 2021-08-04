@@ -98,4 +98,11 @@ We know we are in the virtual environment within bash when '(base)' is before ou
 ```
 (base) [kyle@KyleMac:~]$
 ```
+That's the base environment, for me at least, I created a custom environment with opencv and tensorflow installed. To run my m1_env environment:
+```
+conda activate m1_env
+```
 From there on, we have a new python environment that can run great libraries like tensorflow! (follow above link for more)
+```
+conda deactivate
+```
