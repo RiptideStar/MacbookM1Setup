@@ -106,3 +106,10 @@ From there on, we have a new python environment that can run great libraries lik
 ```
 conda deactivate
 ```
+
+## Combined Commands into one msg
+```
+cd
+source .bash_profile_conda
+conda activate m1_env
+```
