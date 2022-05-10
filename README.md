@@ -112,4 +112,5 @@ conda deactivate
 cd
 source .bash_profile_conda
 conda activate m1_env
+cd Github/
 ```
